@@ -26,7 +26,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -35,15 +35,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.png?v=0.4.5.1" />
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小e的笔记">
-<meta property="og:url" content="http://hongweiyi.com/index.html">
+<meta name="description" content="Java 最佳实践
+毕玄的演讲">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 最佳实践">
+<meta property="og:url" content="http://hongweiyi.com/2015/08/28/java-practice/index.html">
 <meta property="og:site_name" content="小e的笔记">
-<meta property="og:description">
+<meta property="og:description" content="Java 最佳实践
+毕玄的演讲">
+<meta property="og:updated_time" content="2015-08-28T14:42:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小e的笔记">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Java 最佳实践">
+<meta name="twitter:description" content="Java 最佳实践
+毕玄的演讲">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -53,7 +57,7 @@
   };
 </script>
 
-  <title> 小e的笔记 </title>
+  <title> Java 最佳实践 | 小e的笔记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -71,9 +75,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -141,9 +143,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content"> 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -154,138 +156,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/08/28/remoting-practice/" itemprop="url">
-                Java 网络编程最佳实践
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-28T23:12:07+08:00" content="2015-08-28">
-            2015-08-28
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/最佳实践/" itemprop="url" rel="index">
-                  <span itemprop="name">最佳实践</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h1 id="Java_网络编程最佳实践">Java 网络编程最佳实践</h1><h2 id="通信层">通信层</h2><ul>
-<li>直接使用最成熟的网络框架，如 Netty</li>
-<li>单连接 &amp; 连接复用 &amp; 长连接<ul>
-<li>建议提前设计心跳机制</li>
-<li>集群较小，长连接无需开启心跳</li>
-<li>如果网络情况比较复杂，建议开启心跳。如有防火墙，会将连接清掉且不会向客户端发送 RST 信令，导致长连接变成一个脏连接</li>
-</ul>
-</li>
-</ul>
-<h2 id="线程模型">线程模型</h2><p>如果采用了 Netty 这样的框架，线程模型基本已经决定了，但是 Netty 只需负责 IO 处理，需要提供额外的业务线程池负责处理业务请求。</p>
-<ul>
-<li>序列化过程在业务线程中处理</li>
-<li>请求/响应包多个批量从 IO 线程交给业务线程处理</li>
-<li>服务端线程池需要有保护策略<ul>
-<li>框架层面的 RejectExcetpion</li>
-<li>业务层面的限流策略</li>
-</ul>
-</li>
-<li>需要定时打印线程池大小，方便性能分析</li>
-</ul>
-<h2 id="序列化">序列化</h2><ul>
-<li>全站都是 Java 系</li>
-</ul>
-<p>为了以后能让其它语言更好的交互，协议设计越扁平越好，切忌将整个协议类对象序列化，仅整个序列化方法参数对象列表及返回值对象。</p>
-<ul>
-<li>全站各种语言百花齐放</li>
-</ul>
-<p>可以考虑直接使用 Protobuf 或者 msgpack 这样的跨语言的序列化协议，但我个人没使用经验。</p>
-<h2 id="容灾">容灾</h2><ul>
-<li>必须要有超时时间，分布式环境下无超时机制对整体环境影响非常大</li>
-<li>需要有连接隔离机制（根据请求量、错误率等）<ul>
-<li>可参考 <a href="https://github.com/Netflix/ribbon" target="_blank" rel="external">Netflix 的 ribbon</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="故障定位">故障定位</h2><ul>
-<li>客户端发送、服务端接收均需要打印日志，日志必须要有的几个字段：<ul>
-<li>时间戳</li>
-<li>唯一ID： 由于客户端和服务端的请求量较大，所以需要有唯一 ID 能够将客户端日志和服务端请求串起来</li>
-<li>IP 信息</li>
-<li>如下：<ul>
-<li>client:time,unique-id,server-ip</li>
-<li>server:time,unique-id,client-ip</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>提供较好的方式打印网络层日志<ul>
-<li>经常会发生客户端有请求日志，但是服务端没有接收日志的情况</li>
-<li>这个时候无法判断是客户端出错还是服务端出错，可以提供 debug 日志打印网络层的请求日志</li>
-</ul>
-</li>
-</ul>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/28/git-practice/" itemprop="url">
-                GIT 最佳实践
-              </a>
+              Java 最佳实践
             
           
         </h1>
@@ -328,198 +199,58 @@
       
 
       
-        
-          <span itemprop="articleBody"><p>以下是我整理的自己使用及见过比较好的 GIT 实践，草草总结如下，有空会详细描述各项内容：</p>
-<h2 id="Labels">Labels</h2><ul>
-<li>BUG</li>
-<li>P0</li>
-<li>P1</li>
-<li>P2</li>
-<li>TIPS</li>
-<li>TODO</li>
-<li>功能Label<ul>
-<li>交互</li>
-<li>视觉</li>
-<li>…</li>
-</ul>
-</li>
-<li>子功能Label<ul>
-<li>业务1</li>
-<li>业务2</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-<h2 id="Branch">Branch</h2><ul>
-<li>方式1: <a href="http://www.jianshu.com/p/67afe711c731" target="_blank" rel="external">Git版本控制与工作流</a><ul>
-<li>master</li>
-<li>release</li>
-<li>develop</li>
-<li>feature/*</li>
-<li>hotfix</li>
-</ul>
-</li>
-<li>方式2<ul>
-<li>master</li>
-<li>name-dev</li>
-</ul>
-</li>
-</ul>
-<h2 id="Issue">Issue</h2><ul>
-<li>命名<ul>
-<li>XX1-XX2-Description</li>
-<li>XX1: 功能</li>
-<li>XX2: 子功能</li>
-</ul>
-</li>
-<li>Push<ul>
-<li>comment 中添加 #{Issue Id}</li>
-</ul>
-</li>
-</ul>
-<h2 id="Push">Push</h2><ul>
-<li>最小功能提交原则</li>
-</ul>
-<h2 id="Milestone">Milestone</h2><h3 id="常规">常规</h3><ul>
-<li>命名<ul>
-<li>v1.0.0</li>
-<li>v1.0.1</li>
-<li>…</li>
-</ul>
-</li>
-<li>内容<ul>
-<li>基本描述</li>
-<li>版本负责人</li>
-</ul>
-</li>
-</ul>
-<h3 id="其它">其它</h3><ul>
-<li>Application Talk<ul>
-<li>针对 Application 的讨论与展望</li>
-<li>同时也可以发设计文档</li>
-</ul>
-</li>
-</ul>
-<h2 id="其它实践">其它实践</h2><ul>
-<li>可以建立 project-management 分支<ul>
-<li>更多的关注项目管理的内容<ul>
-<li>文档</li>
-<li>项目管理 issue</li>
-</ul>
-</li>
-<li>如果有些 issue 同时涉及多个不同子工程，可以将这些写在这里面</li>
-</ul>
-</li>
-</ul>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/28/java-practice/" itemprop="url">
-                Java 最佳实践
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-28T22:32:00+08:00" content="2015-08-28">
-            2015-08-28
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/最佳实践/" itemprop="url" rel="index">
-                  <span itemprop="name">最佳实践</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h1 id="Java_最佳实践">Java 最佳实践</h1><ul>
+        <span itemprop="articleBody"><h1 id="Java_最佳实践">Java 最佳实践</h1><ul>
 <li><a href="/upload/java-at-alibaba.pptx">毕玄的演讲</a></li>
 </ul>
 </span>
-        
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/28/git-practice/" rel="prev">GIT 最佳实践</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/28/README/" rel="next">README</a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
-  </nav>
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
  </div>
 
         
 
+        
+          <div class="comments" id="comments">
+            
+          </div>
         
       </div>
 
@@ -536,6 +267,15 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -583,6 +323,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java_最佳实践"><span class="nav-number">1.</span> <span class="nav-text">Java 最佳实践</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
       
 
     </div>
@@ -652,6 +403,165 @@
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {
