@@ -18,13 +18,9 @@ tags: [CSS, Frontend]
 
 ### 实例
 
-* 插入类似列表符号
+* 插入类似列表符号：[JsFiddle](https://jsfiddle.net/pg4kpc3k/)
 
-[JsFiddle](https://jsfiddle.net/pg4kpc3k/)
-
-* 插入 clearfix
-
-[JsFiddle](https://jsfiddle.net/hy4av6eu/)
+* 插入 clearfix：[JsFiddle](https://jsfiddle.net/hy4av6eu/)
 
 * first-child & last-child 常用在 ul li 中，用以针对头尾设置不同的样式 
 
@@ -33,7 +29,7 @@ tags: [CSS, Frontend]
 
 有了属性选择器可以设计很多自己的组件，比如按钮分组、进度条之类的。
 
-[进度条实现 - JsFiddle](https://jsfiddle.net/j94nvngo/)
+* [进度条实现 - JsFiddle](https://jsfiddle.net/j94nvngo/)
 
 
-## ...
+## 待续...
