@@ -4,8 +4,6 @@ tags: [Java, Network]
 ---
 
 
-# Java 网络编程最佳实践
-
 ## 通信层
 
 * 直接使用最成熟的网络框架，如 Netty

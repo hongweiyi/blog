@@ -4,7 +4,4 @@ categories: 最佳实践
 tags: [Java]
 ---
 
-# Java 最佳实践
-
-
 * [毕玄的演讲](/upload/java-at-alibaba.pptx)
