@@ -199,4 +199,4 @@ $ docker run -ti -v volumename:/data --volume-driver=flocker busybox sh
 ```
 
 
-> 原文地址：[Understand Docker plugins](https://docs.docker.com/extend/plugins/)
+> 参考地址：[Understand Docker plugins](https://docs.docker.com/extend/plugins/)
