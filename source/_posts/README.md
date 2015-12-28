@@ -1,8 +1,9 @@
 title: README
+date: 2015-08-28 20:32:00
 ---
 
 
-# 建站 
+# 建站
 
 使用 [hexo](https://hexo.io/zh-cn/)，快速开始如下：
 
@@ -52,5 +53,3 @@ deploy:
 ```
 $ hexo deploy
 ```
-
-
