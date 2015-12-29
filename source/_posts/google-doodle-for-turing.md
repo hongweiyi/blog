@@ -7,7 +7,7 @@ categories:
 date: 2012-06-23 21:29:27
 ---
 
-[![clip_image001](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image001_thumb.jpg "clip_image001")](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image001.jpg)
+[![clip_image001](/images/2012/06/clip_image001_thumb.jpg "clip_image001")](/images/2012/06/clip_image001.jpg)
 
 今天是图灵的诞辰100周年，Google又推出了有意思的doodle。今天的doodle主要是围绕着图灵机来的，需要完成多个图灵机规则表的选择，共有6关，每完成一关Google就亮一个字母，直到所有字母都亮起来为止。我就直接贴结果了，想知道原理的可以Google一下“图灵 doodle”或者“图灵机”。游戏截图参见文尾。
 <!--more-->  
@@ -24,22 +24,22 @@ date: 2012-06-23 21:29:27
 
 在后面游戏replay的时候，点击图下的红圈处，会有一个彩蛋。彩蛋所出来的图看着我头疼了，搜了一下说是Rabbit Sequence，应该就是斐波拉奇数列。有兴趣的童鞋可以仔细地研究研究最后的Rabbit图灵机……
 
-[![clip_image003](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image003_thumb.jpg "clip_image003")](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image003.jpg)
+[![clip_image003](/images/2012/06/clip_image003_thumb.jpg "clip_image003")](/images/2012/06/clip_image003.jpg)
 
-[![clip_image005](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image005_thumb.jpg "clip_image005")](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image005.jpg)
+[![clip_image005](/images/2012/06/clip_image005_thumb.jpg "clip_image005")](/images/2012/06/clip_image005.jpg)
 
 **Rabbit Sequence**
 
 **第一轮游戏截图：**
 
-[![clip_image007](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image007_thumb.jpg "clip_image007")](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image007.jpg)
+[![clip_image007](/images/2012/06/clip_image007_thumb.jpg "clip_image007")](/images/2012/06/clip_image007.jpg)
 
-[![clip_image009](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image009_thumb.jpg "clip_image009")](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image009.jpg)
+[![clip_image009](/images/2012/06/clip_image009_thumb.jpg "clip_image009")](/images/2012/06/clip_image009.jpg)
 
-[![clip_image011](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image011_thumb.jpg "clip_image011")](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image011.jpg)
+[![clip_image011](/images/2012/06/clip_image011_thumb.jpg "clip_image011")](/images/2012/06/clip_image011.jpg)
 
-[![clip_image013](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image013_thumb.jpg "clip_image013")](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image013.jpg)
+[![clip_image013](/images/2012/06/clip_image013_thumb.jpg "clip_image013")](/images/2012/06/clip_image013.jpg)
 
-[![clip_image015](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image015_thumb.jpg "clip_image015")](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image015.jpg)
+[![clip_image015](/images/2012/06/clip_image015_thumb.jpg "clip_image015")](/images/2012/06/clip_image015.jpg)
 
-[![clip_image017](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image017_thumb.jpg "clip_image017")](http://www.hongweiyi.com/wp-content/uploads/2012/06/clip_image017.jpg)
+[![clip_image017](/images/2012/06/clip_image017_thumb.jpg "clip_image017")](/images/2012/06/clip_image017.jpg)

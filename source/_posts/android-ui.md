@@ -11,7 +11,7 @@ date: 2011-07-21 18:57:24
 
 自学Android也有一段时间了，自我感觉良好。于是乎反编译了一些UI界面不错的APK学习一下。为了做对比，反编译了一个中文应用一个英文应用，不知是师出同门，还是业界标准，这两个APK的UI资源文件格式惊人的相似，现将res结构贴出来：
 
-[![](http://www.hongweiyi.com/wp-content/uploads/2011/07/Android-Res1.png "Android Res2")](http://www.hongweiyi.com/wp-content/uploads/2011/07/Android-Res1.png)
+[![](/images/2011/07/Android-Res1.png "Android Res2")](/images/2011/07/Android-Res1.png)
 
 <!--more-->这与我们在书本、网络、视频教程看到不一样的是，它将类型一致的常量分离出来，如colors、dimens。同时，它也将样式（styles）给分离出来，主窗体中只留下了界面组件的结构，如同写html+css一样……
 

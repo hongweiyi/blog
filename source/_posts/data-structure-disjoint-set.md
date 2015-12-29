@@ -36,7 +36,7 @@ date: 2012-03-16 22:45:30
 
 **2）定义一个数组set[1...n]，其中set[i]表示元素i所在集合**
 
-[![clip_image002](http://www.hongweiyi.com/wp-content/uploads/2012/03/clip_image002_thumb.jpg "clip_image002")](http://www.hongweiyi.com/wp-content/uploads/2012/03/clip_image002.jpg)
+[![clip_image002](/images/2012/03/clip_image002_thumb.jpg "clip_image002")](/images/2012/03/clip_image002.jpg)
 
 **3）find操作**    <table border="1" cellspacing="0" cellpadding="0"><tbody>       <tr>         <td valign="top" width="568">           <p>find(x):
 
@@ -78,7 +78,7 @@ b. Find-Set：查找可以描述为找两个元素各自的根，判断其是否
 
 c. Union-Set：并集可以描述为把一棵树接到另一个棵树的根结点上，并更新某颗树的代表。（时间复杂度O(n)）
 
-[![clip_image003](http://www.hongweiyi.com/wp-content/uploads/2012/03/clip_image003_thumb.jpg "clip_image003")](http://www.hongweiyi.com/wp-content/uploads/2012/03/clip_image003.jpg)
+[![clip_image003](/images/2012/03/clip_image003_thumb.jpg "clip_image003")](/images/2012/03/clip_image003.jpg)
 
 其实这个与链表来说，性能没有本质上的提高。合并也需要更新结点代表，且如果树构造的时候，构造了一颗线性链的树，查找复杂度也提高了。对其进行优化，有两种策略：
 
@@ -88,7 +88,7 @@ c. Union-Set：并集可以描述为把一棵树接到另一个棵树的根结�
 
 **b. ****路径压缩**
 
-**[![clip_image005](http://www.hongweiyi.com/wp-content/uploads/2012/03/clip_image005_thumb.jpg "clip_image005")](http://www.hongweiyi.com/wp-content/uploads/2012/03/clip_image005.jpg)**
+**[![clip_image005](/images/2012/03/clip_image005_thumb.jpg "clip_image005")](/images/2012/03/clip_image005.jpg)**
 
 如上图，使查找路径上的每个结点都直接指向根结点。简单而有效。
 

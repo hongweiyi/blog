@@ -19,7 +19,7 @@ Hadoop Pipes可供C++开发者开发MapReduce任务。文献与书籍上也写�
 
 **2****、Hadoop Pipes****运行图解**
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/05/image_thumb.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/05/image.png) 
+[![image](/images/2012/05/image_thumb.png "image")](/images/2012/05/image.png) 
 
 **3****、Hadoop****运行机制**
 
@@ -27,7 +27,7 @@ Hadoop端主要类均在org.apache.hadoop.mapred.pipes包下，见下图。
 
 其中，Application是JVM中主要运行程序，PipesMapRunner、PipesReducer、PipesPartitioner、PipesNonJavaInputFormat分别对应C++版的Mapper、Reducer、Partitioner、RecordReader，由于重写RecordWriter后，C++会直接写文件，这里就没有对应的类了。DownwardProtocol/BinaryProtocol、UpwardProtocol/OutputProtocol是Java与C++交互的接口代理类。
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/05/image_thumb1.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/05/image1.png)
+[![image](/images/2012/05/image_thumb1.png "image")](/images/2012/05/image1.png)
 
 开发者通过$HADOOP_HOME/bin/hadoop pipes将作业提交到了包下的Submitter类。运行过程就直接贴文字了，可以结合代码一起看：    <table border="1" cellspacing="0" cellpadding="0"><tbody>       <tr>         <td valign="top" width="568">           <p>1 解析命令行参数
 

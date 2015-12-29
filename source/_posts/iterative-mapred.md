@@ -103,7 +103,7 @@ _&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; PR__值表&#160;&#160;&#160;&#
 
 我现在能想到的，再参考了[网上](http://blog.xebia.com/2011/09/27/wiki-pagerank-with-hadoop/)的实现方式，基本上都是将静态数据与动态数据合并成一个文件，同时读入(mapper)-&gt;写出(mapper)-&gt;传输(reducer)-&gt;写出(reducer)。
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/02/image_thumb.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/02/image.png)&#160;
+[![image](/images/2012/02/image_thumb.png "image")](/images/2012/02/image.png)&#160;
 
 我们可以来估算一下时间，先不考虑磁盘IO，仅算静态数据传输时间一项。其中模拟实验数据为：100w个链接地址；随机生成最多1000个外链；结果数据3.22G（动态数据8.5M）；实验环境网络带宽100M；迭代次数20次。
 

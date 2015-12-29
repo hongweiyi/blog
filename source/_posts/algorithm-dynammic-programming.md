@@ -131,7 +131,7 @@ date: 2012-02-14 20:13:50
 
 	求两数组相同的最长子序列，子序列可以不连续的。状态转移方程：
 
-	[![clip_image002](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image002_thumb1.jpg "clip_image002")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0021.jpg)
+	[![clip_image002](/images/2012/02/clip_image002_thumb1.jpg "clip_image002")](/images/2012/02/clip_image0021.jpg)
 
 	c[i][j]表示在字符串x的i位前与字符串y的j位前最长公共子序列。很容易理解，如果一个x[i]、y[j]相等，c[i-1][j-1]加1，不等的话，c[i][j]等于c[i-1][j]、c[i][j-1]中较大的数。
 

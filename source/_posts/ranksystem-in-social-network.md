@@ -42,7 +42,7 @@ The Elo system was invented as an improved [chess rating system](http://en.wikip
 
 **算法如图：**
 
-### [![clip_image003](http://www.hongweiyi.com/wp-content/uploads/2011/03/clip_image003_thumb.png "clip_image003")](http://www.hongweiyi.com/wp-content/uploads/2011/03/clip_image003.png)
+### [![clip_image003](/images/2011/03/clip_image003_thumb.png "clip_image003")](/images/2011/03/clip_image003.png)
 
 Ea为选手A的期望表现，Ra为选手A当前的等级分排名。
 
@@ -54,7 +54,7 @@ Ea + Eb=1
 
 如果选手的表现比期望要好，那么此选手的排名应该上升。相反，若表现不如期望，则排名会下降。
 
-### [![clip_image004](http://www.hongweiyi.com/wp-content/uploads/2011/03/clip_image004_thumb.jpg "clip_image004")](http://www.hongweiyi.com/wp-content/uploads/2011/03/clip_image004.jpg)
+### [![clip_image004](/images/2011/03/clip_image004_thumb.jpg "clip_image004")](/images/2011/03/clip_image004.jpg)
 
 Sa为选手A本局的得分（1或0），Ra为选手A的期望表现。K为常数，在大师级象棋赛中通常取16。得到的Ra’为选手本局比赛后的等级分排名。
 

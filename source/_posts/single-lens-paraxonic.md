@@ -24,7 +24,7 @@ date: 2011-09-01 19:12:50
 
 **单反与旁轴的最大区别：光路**
 
-[![4d0ebb45de203b32cefca30d](http://www.hongweiyi.com/wp-content/uploads/2011/09/4d0ebb45de203b32cefca30d_thumb.jpg "4d0ebb45de203b32cefca30d")](http://www.hongweiyi.com/wp-content/uploads/2011/09/4d0ebb45de203b32cefca30d.jpg)
+[![4d0ebb45de203b32cefca30d](/images/2011/09/4d0ebb45de203b32cefca30d_thumb.jpg "4d0ebb45de203b32cefca30d")](/images/2011/09/4d0ebb45de203b32cefca30d.jpg)
 
 1：胶卷，或者CCD/CMOS等感光芯片
 

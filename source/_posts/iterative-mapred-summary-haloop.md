@@ -31,11 +31,11 @@ Haloop发布的文献中，说了两个缺陷，再加上董的一个，共仨�
 
 **3****、Haloop解决方案**
 
-**[![clip_image002](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image002_thumb4.jpg "clip_image002")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0024.jpg)**
+**[![clip_image002](/images/2012/02/clip_image002_thumb4.jpg "clip_image002")](/images/2012/02/clip_image0024.jpg)**
 
 _Haloop__框架图_
 
-[![clip_image004](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image004_thumb3.jpg "clip_image004")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0043.jpg)
+[![clip_image004](/images/2012/02/clip_image004_thumb3.jpg "clip_image004")](/images/2012/02/clip_image0043.jpg)
 
 _Haloop__计算流程图_
 

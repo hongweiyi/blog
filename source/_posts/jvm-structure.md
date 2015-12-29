@@ -18,7 +18,7 @@ date: 2012-02-13 13:25:40
 
 如下图所示：
 
-[![clip_image002[6]](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0026_thumb.jpg "clip_image002[6]")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0026.jpg)
+[![clip_image002[6]](/images/2012/02/clip_image0026_thumb.jpg "clip_image002[6]")](/images/2012/02/clip_image0026.jpg)
 
 **2****、内存空间详解**
 
@@ -46,7 +46,7 @@ date: 2012-02-13 13:25:40
 
 为了让内存回收更加高效，Sun JDK从1.2开始对堆采取了分代管理的方法，如下图：
 
-[![clip_image004[6]](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0046_thumb.jpg "clip_image004[6]")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0046.jpg)
+[![clip_image004[6]](/images/2012/02/clip_image0046_thumb.jpg "clip_image004[6]")](/images/2012/02/clip_image0046.jpg)
 
 **4.1) 新生代（New Generation）**
 

@@ -85,7 +85,7 @@ com.hadoop.compression.lzo.LzopCodec
 
 **3****、查看临时文件内部，具体情况具体分析**
 
-[![clip_image002](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image002_thumb.jpg "clip_image002")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image002.jpg)
+[![clip_image002](/images/2012/02/clip_image002_thumb.jpg "clip_image002")](/images/2012/02/clip_image002.jpg)
 
 上面的文件就是我的临时文件内部格式， value在内存中为DoubleWritable，没有考虑精度问题。一个value数据输出后，就会占20字节，我们是否需要这么高的精度呢？
 

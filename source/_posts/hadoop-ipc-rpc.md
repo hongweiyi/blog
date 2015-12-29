@@ -31,7 +31,7 @@ Hadoop是master-slave模型，master只会接受请求并相应，slave在发送
 
 VersionedProtocol说了，所有要使用RPC服务的类都要实现该接口，我们可以来看一下有哪些接口继承了该接口。
 
-[![clip_image002](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image002_thumb3.jpg "clip_image002")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0023.jpg)
+[![clip_image002](/images/2012/02/clip_image002_thumb3.jpg "clip_image002")](/images/2012/02/clip_image0023.jpg)
 
 **1****）HDFS相关**
 
@@ -63,7 +63,7 @@ VersionedProtocol说了，所有要使用RPC服务的类都要实现该接口，
 
 RPC提供了一个简单的RPC机制，提供以下几种静态方法：
 
-[![clip_image004](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image004_thumb2.jpg "clip_image004")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0042.jpg)
+[![clip_image004](/images/2012/02/clip_image004_thumb2.jpg "clip_image004")](/images/2012/02/clip_image0042.jpg)
 
 **1）***Proxy**
 

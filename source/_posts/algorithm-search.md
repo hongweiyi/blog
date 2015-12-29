@@ -19,7 +19,7 @@ date: 2012-02-22 00:56:00
 
 	经典回溯的例子是求n个元素的幂集，幂集简单点说就是n个元素的全组合再加上空集，它的解空间树（状态树）如下：
 
-	[![clip_image002](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image002_thumb2.jpg "clip_image002")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0022.jpg)
+	[![clip_image002](/images/2012/02/clip_image002_thumb2.jpg "clip_image002")](/images/2012/02/clip_image0022.jpg)
 
 	上面的树是一颗满二叉树，树中每个结点的状态都是求解过程中可能出现的状态（即解）。递归过程可以简单理解为对n个元素的0、1取舍，伪代码如下：
 
@@ -51,7 +51,7 @@ date: 2012-02-22 00:56:00
 
 	以四皇后问题为例，剪支后的状态树如下：
 
-	[![clip_image004](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image004_thumb1.jpg "clip_image004")](http://www.hongweiyi.com/wp-content/uploads/2012/02/clip_image0041.jpg)
+	[![clip_image004](/images/2012/02/clip_image004_thumb1.jpg "clip_image004")](/images/2012/02/clip_image0041.jpg)
 
 	伪代码如下：
 

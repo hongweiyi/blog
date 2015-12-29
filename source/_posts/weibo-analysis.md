@@ -40,23 +40,23 @@ date: 2012-03-26 23:20:04
 
 有了数据，就直接复制到Excel中，生成图表。图表如下：
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb6.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image6.png) 
+[![image](/images/2012/03/image_thumb6.png "image")](/images/2012/03/image6.png) 
 
 我是有多爱转发啊……
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb7.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image7.png) 
+[![image](/images/2012/03/image_thumb7.png "image")](/images/2012/03/image7.png) 
 
 网页版新浪微博稳居第一，因为我大部分时间还是花在pc上的。买了pad后，在iPad客户端上的发布数应该会上升很多。
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb8.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image8.png) 
+[![image](/images/2012/03/image_thumb8.png "image")](/images/2012/03/image8.png) 
 
 一周中，每天发的微博数差不多，也是，我对周几一般来说是没概念的。
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb9.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image9.png) 
+[![image](/images/2012/03/image_thumb9.png "image")](/images/2012/03/image9.png) 
 
 一天中，发布的大部分时间都集中在了中午和午夜，夜晚倒能理解，中午为啥也那么高呢？
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb10.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image10.png) 
+[![image](/images/2012/03/image_thumb10.png "image")](/images/2012/03/image10.png) 
 
 去年三月份创建的微博帐户，之后发布的微博数急速上升，到了五月到了顶峰，之后就回落。去年十月份之后就比较忙了，一直到了开学，微博又有上升的趋势了。
 

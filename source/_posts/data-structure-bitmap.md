@@ -34,7 +34,7 @@ bytes[1] = 10100000;
 
 Bit-Map会声明一个定长的byte/int数组，之后将数组内元素的所有Bit位均置为0，如下图：
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb2.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image2.png) 
+[![image](/images/2012/03/image_thumb2.png "image")](/images/2012/03/image2.png) 
 
 **2****）遍历数据，并插入Bit-Map**
 
@@ -51,7 +51,7 @@ isExist(i) : return array[i&gt;&gt;SHIFT] &amp; (1 &lt;&lt; (i &amp; MASK);
 
 遍历插入之后的数据应该是这样的：
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb3.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image3.png) 
+[![image](/images/2012/03/image_thumb3.png "image")](/images/2012/03/image3.png) 
 
 **3****、Bit-Map应用**
 

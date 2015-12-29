@@ -19,9 +19,9 @@ SkipLists设计出来就是用来取代平衡树的，SkipList依靠随机的思
 
 **2****、SkipLists思想**
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb4.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image4.png) 我们先来看看上面的有序链表（例子Copy自文献），需要查找一个节点，我们得获得头节点，再依次遍历下去，时间复杂度为O(n)。
+[![image](/images/2012/03/image_thumb4.png "image")](/images/2012/03/image4.png) 我们先来看看上面的有序链表（例子Copy自文献），需要查找一个节点，我们得获得头节点，再依次遍历下去，时间复杂度为O(n)。
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb5.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image5.png) 如果有上面这种结构，每间隔一个节点添加一个额外指针指向下下个节点。那么每次查找先查下下节点，大于继续查找，小于的话，查找下个节点。这样的话，时间复杂度就降到了O(n/2)。
+[![image](/images/2012/03/image_thumb5.png "image")](/images/2012/03/image5.png) 如果有上面这种结构，每间隔一个节点添加一个额外指针指向下下个节点。那么每次查找先查下下节点，大于继续查找，小于的话，查找下个节点。这样的话，时间复杂度就降到了O(n/2)。
 
 这基本上就是跳表的核心思想，即通过“空间来换取时间”的一个算法，通过在每个节点中增加了向前的指针，从而提升查找的效率。
 
@@ -37,7 +37,7 @@ SkipLists设计出来就是用来取代平衡树的，SkipList依靠随机的思
 
 如下图：
 
-[![clip_image006](http://www.hongweiyi.com/wp-content/uploads/2012/03/clip_image006_thumb.jpg "clip_image006")](http://www.hongweiyi.com/wp-content/uploads/2012/03/clip_image006.jpg)
+[![clip_image006](/images/2012/03/clip_image006_thumb.jpg "clip_image006")](/images/2012/03/clip_image006.jpg)
 
 **4****、结构特征**
 

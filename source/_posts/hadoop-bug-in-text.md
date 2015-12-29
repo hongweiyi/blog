@@ -18,7 +18,7 @@ date: 2012-09-18 21:52:55
 
 心想着可以提交一个patch，但后来翻了一下新版本的源码，发现hadoop已经提供了一种解决方案——copyBytes()。具体实现见下图：
 
-[![Image](http://www.hongweiyi.com/wp-content/uploads/2012/09/Image_thumb.png "Image")](http://www.hongweiyi.com/wp-content/uploads/2012/09/Image.png)
+[![Image](/images/2012/09/Image_thumb.png "Image")](/images/2012/09/Image.png)
 
 **P.S.:** Hadoop会在不变动原有逻辑的基础上进行修改，这样的话可以最大限度的减少对用户的影响，并且可以往下兼容。值得学习啊，给我的话，就直接修改getBytes()方法了。
 

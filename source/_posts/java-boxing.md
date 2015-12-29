@@ -34,11 +34,11 @@ date: 2012-03-04 01:07:14
 
 Integer与int比较，以及Integer内部比较是怎么样的呢？这就涉及到自动装箱/拆箱技术了，一般来说，具有包装类的语言都有这种技术，如Objective-C、Java等，该技术只是编译器给用户提供的一些方便（编译器糖：Compiler Sugar），那么我们来看看Java是怎么实现的吧。附上字节码：
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image.png) 
+[![image](/images/2012/03/image_thumb.png "image")](/images/2012/03/image.png) 
 
 Java的自动装箱直接调用了Integer的静态方法Integer.valueOf，实质上还是创建了一个Integer对象。
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/03/image_thumb1.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/03/image1.png) 而拆箱呢，有人说是将int变量先装箱，再比较。但是字节码说明了，是获得对象的值，再比较。
+[![image](/images/2012/03/image_thumb1.png "image")](/images/2012/03/image1.png) 而拆箱呢，有人说是将int变量先装箱，再比较。但是字节码说明了，是获得对象的值，再比较。
 
 还有一个疑问，为什么在128的时候num1 != num2，而改一个常量12就等于了呢？需要说明的是，在自动装箱时对于值从[–128, 127]之间的值，它们被装箱为Integer对象后，会在内存中被重用（装箱对象池？）。即如果创建时值位于界内，它会先判断是否存在该对象，有的话直接指向地址。如果不位于界内，则会直接创建新对象。
 

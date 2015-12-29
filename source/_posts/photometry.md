@@ -22,7 +22,7 @@ date: 2011-09-01 03:33:22
 
 [ ](http://detail.zol.com.cn/picture_index_697/index6963692.shtml)
 
-[![MUX~][FR}HT_O3V]~BF]]79](http://www.hongweiyi.com/wp-content/uploads/2011/09/MUXFRHT_O3VBF79.jpg "MUX~][FR}HT_O3V]~BF]]79")](http://detail.zol.com.cn/picture_index_697/index6963692.shtml)
+[![MUX~][FR}HT_O3V]~BF]]79](/images/2011/09/MUXFRHT_O3VBF79.jpg "MUX~][FR}HT_O3V]~BF]]79")](http://detail.zol.com.cn/picture_index_697/index6963692.shtml)
 
 [ ](http://detail.zol.com.cn/picture_index_697/index6963692.shtml)
 

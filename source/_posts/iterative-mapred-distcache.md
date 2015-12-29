@@ -67,7 +67,7 @@ conf.set(&quot;mapred.cache. archives&quot;, &quot;/data/data.zip#mDataZip&quot;
 在使用symlink之前，需要告知hadoop，如下：    <table border="1" cellspacing="0" cellpadding="0"><tbody>       <tr>         <td valign="top" width="568">           <p>conf.set(&quot;mapred.create.symlink&quot;, &quot;yes&quot;); // 是yes，不是true
          </td>       </tr>        <tr>         <td valign="top" width="568">           
 
-[DistributedCache.createSymlink(Configuration)](http://www.hongweiyi.com/wp-content/uploads/2012/02/DistributedCache.html)
+[DistributedCache.createSymlink(Configuration)](/images/2012/02/DistributedCache.html)
          </td>       </tr>     </tbody></table> </p>  
 
 **4、注意事项**

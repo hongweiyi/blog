@@ -34,7 +34,7 @@ for i in [0, m):
 
 将已经选择的元素剔出看似很方便，直接删除即可。但是数据集采用数组形式存储，删除的时间复杂度为线性，有人又说可以改成链表，但是链表存储查找又是线性时间了。那么我们能做的就是不删除元素，只是改变一下它的位置：将已选择的元素移到数组末尾。如下图：
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/02/image_thumb1.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/02/image1.png) 
+[![image](/images/2012/02/image_thumb1.png "image")](/images/2012/02/image1.png) 
 
 代码如下：    <table border="1" cellspacing="0" cellpadding="0" width="561"><tbody>       <tr>         <td valign="top" width="559">           <p>// random() -&gt; (0,1)
 
@@ -96,7 +96,7 @@ for i in [0, n):
 
 被选中的概率×（后面元素没被选中 + 后面元素被选中 × 没被替换的概率）
 
-[![image](http://www.hongweiyi.com/wp-content/uploads/2012/02/image_thumb2.png "image")](http://www.hongweiyi.com/wp-content/uploads/2012/02/image2.png) 
+[![image](/images/2012/02/image_thumb2.png "image")](/images/2012/02/image2.png) 
 
 证明2简明扼要啊！
 
