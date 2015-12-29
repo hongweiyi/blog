@@ -68,7 +68,8 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 #theme: landscape
-theme: next 
+#theme: next 
+theme: apollo 
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
@@ -82,4 +83,10 @@ avatar: /images/hongweiyi.jpg
 
 duoshuo_shortname: yihongwei
 google_analytics: UA-66911097-1
+
+# Social links
+#social:
+#  github: https://github.com/hongweiyi
+#  twitter: https://twitter.com/hongwei89
+#  weibo: http://weibo.com/1674333040
 
