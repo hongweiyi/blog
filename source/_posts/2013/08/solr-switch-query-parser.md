@@ -7,7 +7,7 @@ categories:
 date: 2013-08-31 10:55:12
 ---
 
-**1、前言**
+### 1、前言
 
 	早上了解QueryParser的时候，发现了一个有意思的插件-SwitchQueryParser。看名字有种高端大气上档次的感觉，但是用起来好像就没这种感觉了，因为好像功能确实有限，这插件只是提供了一种更为&ldquo;友好&rdquo;的filter query功能。
 
@@ -15,7 +15,7 @@ date: 2013-08-31 10:55:12
 
 	&nbsp;
 
-	**2、细说**
+### 2、细说
 
 	插件的语法如下：
 
@@ -33,11 +33,11 @@ date: 2013-08-31 10:55:12
 
 	如下：
 
-	[![image](http://hongweiyi.com/wp-content/uploads/2013/08/image_thumb.png "image")](http://hongweiyi.com/wp-content/uploads/2013/08/image.png)&nbsp;
+	[![image](/2013/08/image.png)
 
 	部分源码：
 
-[code lang="java"]
+``` java
 /** SwitchQParserPlugin */
 @Override
 public Query parse() throws SyntaxError {
@@ -57,14 +57,12 @@ public Query parse() throws SyntaxError {
   subParser = subQuery(subQ, null);
   return subParser.getQuery();
 }
-[/code]
+```
 
-	&nbsp;
-
-	**3、有感**
+### 3、有感
 
 	这个插件的使用场景我觉得更多的是在业务层使用，由业务层封装多个case，将多个case的值暴露给更上层的业务，提供一个较为友好的交互方式。比如下面这种（肯定实际不是这么做的）：
 
-	[![QQ图片20130831103315](http://hongweiyi.com/wp-content/uploads/2013/08/QQ20130831103315_thumb.jpg "QQ图片20130831103315")](http://hongweiyi.com/wp-content/uploads/2013/08/QQ20130831103315.jpg)
+	!["QQ图片20130831103315"](/2013/08/QQ20130831103315.jpg)
 
 	总的来说，这个插件对于我们现在的系统而言，用处不大，但是Solr的这种查询方式，这种插件式编码方式，很值得我们借鉴和学习。

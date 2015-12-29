@@ -1,12 +1,12 @@
 title: 那些英语标点怎么读
 tags:
   - 英语
-id: 115
 categories:
   - 生活分享
 date: 2011-03-08 15:52:59
 ---
 
+```
 +　 plus　加号；正号
 -　 minus　减号；负号
 ±　plus or minus　正负号
@@ -23,7 +23,8 @@ date: 2011-03-08 15:52:59
 ≯　is not more than　不大于号
 ≤　is less than or equal to　小于或等于号
 ≥　is more than or equal to　大于或等于号
-<!--more-->%　 per cent　百分之…
+<!--more-->
+%　 per cent　百分之…
 ‰　per mill　千分之…
 ∞　infinity　无限大号
 ∝　varies as　与…成比例
@@ -56,7 +57,7 @@ date: 2011-03-08 15:52:59
 [] square brackets　方括号
 .　period, dot　句号，点
 |　vertical bar, vertical virgule　竖线
-&amp;　ampersand, and, reference, ref　和，引用
+&　ampersand, and, reference, ref　和，引用
 *　asterisk, multiply, star, pointer　星号，乘号，星，指针
 /　slash, divide, oblique 斜线，斜杠，除号
 //　slash-slash, comment 双斜线，注释符
@@ -76,9 +77,10 @@ date: 2011-03-08 15:52:59
 "　single quotation marks 单引号
 ""　double quotation marks 双引号
 ‖ parallel 双线号
-&amp;　ampersand = and
+&　ampersand = and
 ～　swung dash 代字号
 §　section; division 分节号
 →　arrow 箭号；参见号
+```
 
-原文链接：http://blog.sina.com.cn/s/blog_515dc9340100gy95.html
+> [原文链接](http://blog.sina.com.cn/s/blog_515dc9340100gy95.html)

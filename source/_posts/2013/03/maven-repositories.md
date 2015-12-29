@@ -1,6 +1,6 @@
 title: Maven笔记 - 仓库
 tags:
-  - java
+  - Java
   - Maven
 id: 726
 categories:

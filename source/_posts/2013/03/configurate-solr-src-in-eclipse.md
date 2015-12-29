@@ -1,7 +1,7 @@
 title: 在Eclipse中配置Solr源码
 tags:
   - Eclipse
-  - java
+  - Java
   - Solr
 id: 735
 categories:

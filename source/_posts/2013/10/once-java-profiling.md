@@ -1,6 +1,6 @@
 title: 记一次java性能问题定位
 tags:
-  - java
+  - Java
   - JVM
 id: 861
 categories:
