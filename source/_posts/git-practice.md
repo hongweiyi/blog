@@ -5,6 +5,7 @@ tags: GIT
 ---
 
 以下是我整理的自己使用及见过比较好的 GIT 实践，草草总结如下，有空会详细描述各项内容：
+<!--more-->
 
 ## Labels
 
@@ -22,8 +23,8 @@ tags: GIT
     * 业务1
     * 业务2
 	* ...
-	
-	
+
+
 ## Branch
 
 * 方式1: [Git版本控制与工作流](http://www.jianshu.com/p/67afe711c731)
@@ -35,7 +36,7 @@ tags: GIT
 * 方式2
 	* master
 	* name-dev
-	
+
 ## Issue
 
 * 命名
@@ -44,7 +45,7 @@ tags: GIT
 	* XX2: 子功能
 * Push
 	* comment 中添加 #{Issue Id}
-	
+
 ## Push
 
 * 最小功能提交原则
@@ -67,7 +68,7 @@ tags: GIT
 * Application Talk
 	* 针对 Application 的讨论与展望
 	* 同时也可以发设计文档
-	
+
 ## 其它实践
 
 * 可以建立 project-management 分支
