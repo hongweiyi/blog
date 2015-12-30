@@ -4,7 +4,7 @@ categories: 最佳实践
 tags: [CSS, Frontend]
 ---
 
-## 善用 伪元素(Pseudo-elements)
+## 1. 善用 伪元素(Pseudo-elements)
 
 ### 常用伪元素
 
@@ -19,14 +19,14 @@ tags: [CSS, Frontend]
 
 * 插入 clearfix：[JsFiddle](https://jsfiddle.net/hy4av6eu/)
 
-* first-child & last-child 常用在 ul li 中，用以针对头尾设置不同的样式 
+* first-child & last-child 常用在 ul li 中，用以针对头尾设置不同的样式
 
 
-## 善用属性选择器
+## 2. 善用属性选择器
 
 有了属性选择器可以设计很多自己的组件，比如按钮分组、进度条之类的。
 
 * [进度条实现 - JsFiddle](https://jsfiddle.net/j94nvngo/)
 
 
-## 待续...
+## 3. 待续...

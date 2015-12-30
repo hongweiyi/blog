@@ -5,9 +5,10 @@ tags: GIT
 ---
 
 以下是我整理的自己使用及见过比较好的 GIT 实践，草草总结如下，有空会详细描述各项内容：
+
 <!--more-->
 
-## Labels
+## 1. Labels
 
 * BUG
 * P0
@@ -25,7 +26,7 @@ tags: GIT
 	* ...
 
 
-## Branch
+## 2. Branch
 
 * 方式1: [Git版本控制与工作流](http://www.jianshu.com/p/67afe711c731)
 	* master
@@ -37,7 +38,7 @@ tags: GIT
 	* master
 	* name-dev
 
-## Issue
+## 3. Issue
 
 * 命名
 	* XX1-XX2-Description
@@ -46,12 +47,12 @@ tags: GIT
 * Push
 	* comment 中添加 #{Issue Id}
 
-## Push
+## 4. Push
 
 * 最小功能提交原则
 
 
-## Milestone
+## 5. Milestone
 
 ### 常规
 
@@ -63,13 +64,13 @@ tags: GIT
 	* 基本描述
 	* 版本负责人
 
-### 其它
+## 6. 其它
 
 * Application Talk
 	* 针对 Application 的讨论与展望
 	* 同时也可以发设计文档
 
-## 其它实践
+## 7. 其它实践
 
 * 可以建立 project-management 分支
 	* 更多的关注项目管理的内容
