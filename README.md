@@ -1,28 +1,50 @@
-# ²©¿ÍÊ¹ÓÃËµÃ÷
+# å»ºç«™
 
-## ÈçºÎĞ´ÎÄÕÂ
-
-ÔÚ `source\_posts` ÏÂÃæĞÂ½¨ md ÎÄ¼ş¼´¿É£¬¸ñÊ½ÈçÏÂ£º
+ä½¿ç”¨ [hexo](https://hexo.io/zh-cn/)ï¼Œå¿«é€Ÿå¼€å§‹å¦‚ä¸‹ï¼š
 
 ```
-title: my new post # ¿ÉÒÔ¸Ä³ÉÖĞÎÄµÄ£¬Èç¡°ĞÂÎÄÕÂ¡±
-date: 2013-05-29 07:56:29 # ·¢±íÈÕÆÚ£¬Ò»°ã²»¸Ä¶¯£¬¿ÉÒÔ²»Ğ´
-categories: blog # ÎÄÕÂÎÄÀà
-tags: [²©¿Í£¬ÎÄÕÂ] #ÎÄÕÂ±êÇ©£¬¶àÓÚÒ»ÏîÊ±ÓÃÕâÖÖ¸ñÊ½
----
-markdown Ğ´µÄÕıÎÄ
-
+$ npm install hexo-cli -g
+$ hexo init blog
+$ cd blog
+$ npm install
+$ hexo server
 ```
 
 
-## µ±Ç°µÄ·ÖÀà¼°±êÇ©
+# ä¸»é¢˜
 
-### categories
+ä½¿ç”¨äº† [NexT](http://theme-next.iissnan.com/)ï¼Œå¿«é€Ÿå¼€å§‹å¦‚ä¸‹ï¼š
 
-ÎŞ
+```
+$ cd your-hexo-site
+$ git clone https://github.com/iissnan/hexo-theme-next themes/next
+```
 
-### tags
 
-ÎŞ
+ç”±äºå¢™çš„å­˜åœ¨ï¼Œå»ºè®®ç›´æ¥åˆ°é¡¹ç›®çš„ [github ä¸»é¡µ](https://github.com/iissnan/hexo-theme-next) ç›´æ¥ä¸‹è½½ zip åŒ…ã€‚
 
 
+# éƒ¨ç½²åˆ° github pages
+
+å®‰è£… git éƒ¨ç½²æ’ä»¶å³å¯ï¼Œå‚è€ƒ: [éƒ¨ç½²](https://hexo.io/zh-cn/docs/deployment.html)
+
+* å®‰è£…æ’ä»¶
+
+
+```
+$ npm install hexo-deployer-git --save
+```
+
+* åœ¨ `_config.yml` ä¸­ä¿®æ”¹ deploy å†…å®¹
+
+```
+deploy:
+  type: git
+  repo: https://github.com/hongweiyi/hongweiyi.github.io.git
+```
+
+* éƒ¨ç½²
+
+```
+$ hexo deploy
+```
