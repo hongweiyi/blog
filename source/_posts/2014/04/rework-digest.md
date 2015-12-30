@@ -1,7 +1,7 @@
 title: REWORK - 灵感稍纵即逝
 date: 2014-04-14 21:40:00
 categories: 生活点滴
-tags: REWORK, 37signals, 书摘, 生活
+tags: [REWORK, 37signals, 书摘, 生活]
 ---
 
 昨天在hn上看到37signals，顺带看到《rework》这本书，多看试读了一下，立马亚马逊下单了。怎么说吧，里面的大多数文字都让我产生深深的共鸣，两小时读完，有种恨不得立马去他公司去体验一把的感觉，这感觉是如此奇妙。

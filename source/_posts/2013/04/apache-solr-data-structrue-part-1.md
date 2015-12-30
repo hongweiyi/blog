@@ -1,7 +1,7 @@
 title: Apache Solr —— 常用数据结构（一）
 date: 2013-04-08 18:04:00
 categories: 技术分享
-tags: Solr, 数据结构
+tags: [Solr, 数据结构]
 ---
 
 ### 1、前言

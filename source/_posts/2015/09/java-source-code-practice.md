@@ -1,7 +1,7 @@
 title: Java 源码阅读 最佳实践
 date: 2015-09-01 23:40:00
 categories: 最佳实践
-tags: Java, 源码
+tags: [Java, 源码]
 ---
 
 ## 1. 原则
