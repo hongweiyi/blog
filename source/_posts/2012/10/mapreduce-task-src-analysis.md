@@ -8,128 +8,130 @@ categories:
 date: 2012-10-18 22:22:02
 ---
 
-**一、序言**
+### 1、序言
 
-这篇文章从十一前开始写，陆陆续续看源码并理解其中的原理。主要了解了Map/Reduce的运行流程，并仔细分析了Map流程以及一些细节，但是没有分析仔细Reduce Task，因为和一个朋友@[lidonghua1990](http://weibo.com/getix2010)一起分析的，他分析ReduceTask，这篇文章的Reduce的注释部分也是由他添加。等到他分析完Reduce之后，再将链接填上……
+这篇文章从十一前开始写，陆陆续续看源码并理解其中的原理。主要了解了Map/Reduce的运行流程，并仔细分析了Map流程以及一些细节，但是没有分析仔细Reduce Task，因为和一个朋友@[lidonghua1990](http://weibo.com/getix2010)一起分析的，他分析ReduceTask，这篇文章的Reduce的注释部分也是由他添加。等到他分析完Reduce之后，再将链接填上。
+
 <!--more-->
 
-&#160;
+### 2、源码流程分析
 
-**二、源码流程分析**
+![clip_image0014](/images/2012/10/clip_image0014.jpg)
 
-**[![clip_image001[4]](http://hongweiyi.com/wp-content/uploads/2012/10/clip_image0014_thumb.jpg "clip_image001[4]")](http://hongweiyi.com/wp-content/uploads/2012/10/clip_image0014.jpg)**
-
------------------------------Start-----------------------------------    <table border="1" cellspacing="0" cellpadding="0" width="642"><tbody>       <tr>         <td valign="top" width="640">           <p>**【****Map Phrase****】**
+```
+-----------------------------Start-----------------------------------
+【Map Phrase】
 
 // MapTask
 
-**1\. map.run();**
+1. map.run();
 
-&#160; |- map(getCurrentKey(), getCurrentValue(), context);
-
-// MapTask$NewOutputCollector
-
-**2\. context.write(key, value);**
-
-&#160; |- collector.collect(key, value, partioner.getPartition());
-
-// MapTask$MapOutputBuffer
-
-**3\. startSpill();**
-
-&#160; |- spillReady.signal(); // spillThread is waiting
-
-&#160; |- spillThread.sortAndSpill();
-
-&#160; |--- sorter.sort();&#160;&#160;&#160;&#160;&#160;&#160; // default: QuickSort.class
-
-&#160; |--- if (combiner != null) combiner.combine();
-
-&#160; |--- writer.close();&#160;&#160;&#160;&#160; // flush data
+  |- map(getCurrentKey(), getCurrentValue(), context);
 
 // MapTask$NewOutputCollector
 
+2. context.write(key, value);
+
+  |- collector.collect(key, value, partioner.getPartition());
+
 // MapTask$MapOutputBuffer
 
-**4\. output.close(context);**
+3. startSpill();
 
-&#160; |- collector.flush();
+  |- spillReady.signal(); // spillThread is waiting
 
-&#160; |--- SortAndSpill();&#160;&#160;&#160; // output last mem data
+  |- spillThread.sortAndSpill();
 
-&#160; |--- MergeParts();
+  |— sorter.sort();       // default: QuickSort.class
 
-&#160; |----- Merge.merge();&#160; // merge and sort
+  |— if (combiner != null) combiner.combine();
 
-&#160; |----- combinerRunner.combine(kvIter, combineCollector);
-         </td>       </tr>     </tbody></table> </p>  
+  |— writer.close();     // flush data
 
+// MapTask$NewOutputCollector
+
+// MapTask$MapOutputBuffer
+
+4. output.close(context);
+
+  |- collector.flush();
+
+  |— SortAndSpill();    // output last mem data
+
+  |— MergeParts();
+
+  |—– Merge.merge();  // merge and sort
+
+  |—– combinerRunner.combine(kvIter, combineCollector);
+```
+
+
+![Image](/images/2012/10/Image.jpg)
+
+```
 ----------------------Tmp Data(On disk)-------------------------------
-
-[![Image](http://hongweiyi.com/wp-content/uploads/2012/10/Image_thumb.jpg "Image")](http://hongweiyi.com/wp-content/uploads/2012/10/Image.jpg)&#160;&#160; <table border="1" cellspacing="0" cellpadding="0" width="645"><tbody>       <tr>         <td valign="top" width="643">           <p>**【****Reduce Phrase****】**
+【Reduce Phrase】
 
 // LocalJobRunner$Job
 
-**0\. reduce.run(localConf, this);**
+0. reduce.run(localConf, this);
 
 // ReduceTask
 
-**1\. reduceCopier.fetchOutputs();** // only if data is on HDFS
+1. reduceCopier.fetchOutputs(); // only if data is on HDFS
 
-&#160; |- copier.start(); // **mapred.reduce.parallel.copies** MapOutputCopiers
+  |- copier.start(); // mapred.reduce.parallel.copies MapOutputCopiers
 
-&#160; |--- copyOutput(loc); // loc is the location in buffer
+  |— copyOutput(loc); // loc is the location in buffer
 
-&#160; |----- getMapOutput(); // from remote host to a ramfs/localFS file
+  |—– getMapOutput(); // from remote host to a ramfs/localFS file
 
-&#160; |------- // setup connection, validates header
+  |——- // setup connection, validates header
 
-&#160; |------- boolean shuffleInMemory = ramManager.canFitInMemory(decompressedLength); // check if data fit in mem else use localFS
+  |——- boolean shuffleInMemory = ramManager.canFitInMemory(decompressedLength); // check if data fit in mem else use localFS
 
-&#160; |------- shuffleInMemory(); / shuffleToDisk(); // return a MapOutput
+  |——- shuffleInMemory(); / shuffleToDisk(); // return a MapOutput
 
-&#160; |----- // add to list (if in mem) / rename to final name (if in localFS)
+  |—– // add to list (if in mem) / rename to final name (if in localFS)
 
-&#160; |- localFSMergerThread.start(); // ReduceTask$ReduceCopier$LocalFSMerger.run()
+  |- localFSMergerThread.start(); // ReduceTask$ReduceCopier$LocalFSMerger.run()
 
-&#160; |--- // wait if number of files &lt; 2*ioSortFactor - 1
+  |— // wait if number of files < 2*ioSortFactor - 1
 
-&#160; |--- Merger.merge(**sortSegments==true**); // merge **io.sort.factor** files ino 1
+  |— Merger.merge(sortSegments==true); // merge io.sort.factor files ino 1
 
-&#160; |- inMemFSMergeThread.start(); // ReduceTask$ReduceCopier$InMemFSMergeThread.run()
+  |- inMemFSMergeThread.start(); // ReduceTask$ReduceCopier$InMemFSMergeThread.run()
 
-&#160; |--- ramManager.waitForDataToMerge();
+  |— ramManager.waitForDataToMerge();
 
-&#160; |--- doInMemMerge();
+  |— doInMemMerge();
 
-&#160; |----- createInMemorySegments(...);
+  |—– createInMemorySegments(…);
 
-&#160; |----- Merger.merge(**sortSegments==false**);
+  |—– Merger.merge(sortSegments==false);
 
-&#160; |--- if (combinerRunner != null) combinerRunner.combine(rIter, combineCollector);
+  |— if (combinerRunner != null) combinerRunner.combine(rIter, combineCollector);
 
-&#160; |- // schedule until get all required outputs (using exp-back-off for retries on failures)
+  |- // schedule until get all required outputs (using exp-back-off for retries on failures)
 
-// multi-pass (**factor** segments/pass), using **hadoop.util.PriorityQueue**
+// multi-pass (factor segments/pass), using hadoop.util.PriorityQueue
 
-**2\. Merger.merge();**
+2. Merger.merge();
 
-&#160; |- factor = getPassFactor(); // btw: first pass is special
+  |- factor = getPassFactor(); // btw: first pass is special
 
-&#160; |- // set segmentsToMerge (sorted) and put them into PriorityQueue
+  |- // set segmentsToMerge (sorted) and put them into PriorityQueue
 
-&#160; |- // merge into a temp file, add to **MergeQueue.segments**, and sort
+  |- // merge into a temp file, add to MergeQueue.segments, and sort
 
-&#160; |- // loop until number of segments &lt; factor
+  |- // loop until number of segments < factor
 
-**3\. runReducer();**
-         </td>       </tr>     </tbody></table> </p>  
+3. runReducer();
+```
 
------------------------------Done------------------------------------
+### 3、部分问题分析
 
-**三、部分问题分析**
-
-**1****）如何排序并输出的？**
+1）如何排序并输出的？
 
 sortAndSpill();
 
@@ -143,33 +145,31 @@ mapper接收到map端的输出后，会将所有的输出数据写入一个缓�
 
 为了避免这样的问题出现，mapreduce实现中提供了两个索引记录，第一个为kvindices（kvpair1[partion1, key1_start, value1_start], kvpair2[partition2, key2_start, value2_start]），这个索引指向缓存中记录的起始位置；第二个为kvoffsets，记录kvindices中kvpair的位置，只需要比较kvoffsets中所对应的partition值以及key值再交换kvoffsets中的值即可完成排序。
 
-**[](http://hongweiyi.com/wp-content/uploads/2012/10/clip_image0054.jpg)**
+![image](/images/2012/10/clip_image0054.jpg)
 
-**[![Image](http://hongweiyi.com/wp-content/uploads/2012/10/Image_thumb1.jpg "Image")](http://hongweiyi.com/wp-content/uploads/2012/10/Image1.jpg)**
+![Image](/images/2012/10/Image1.jpg)
 
-** 2****）****combine****什么时候执行的？**
+2）combine什么时候执行的？
 
-· 在map端内存溢写到磁盘的时候会执行combine（可配置不执行，min.num.spills.for.combine默认为3，当spill数少于3的时候，就不会执行）；
-
-· 在map端合并磁盘溢写文件的时候会执行combine；
-
-· 在reduce端合并内存拉取文件的时候会执行combine（inMemFSMergeThread）。
+* 在map端内存溢写到磁盘的时候会执行combine（可配置不执行，min.num.spills.for.combine默认为3，当spill数少于3的时候，就不会执行）；
+* 在map端合并磁盘溢写文件的时候会执行combine；
+* 在reduce端合并内存拉取文件的时候会执行combine（inMemFSMergeThread）。
 
 为什么在localFSMergerThread中不执行combine呢？因为这个时候执行的combine就是reduce过程了。
 
-**3****）****segment****和****group****是啥？**
+3）segment和group是啥？
 
-**segment**
+segment
 
 每个map端划分出来的partition所对应的数据块为一个segment。如下，partition0/1/2所对应spill.out的一段数据均为一个segment。
 
 即segment是map端merge spills，以及reduce端merge从map端copy过来的数据的逻辑单元。
 
-[![Image](http://hongweiyi.com/wp-content/uploads/2012/10/Image_thumb2.jpg "Image")](http://hongweiyi.com/wp-content/uploads/2012/10/Image2.jpg)&#160;**group**
+![Image](/images/2012/10/Image2.jpg)
 
 个人理解就是reduce端进入一个reduce()方法的数据称之为一个group。默认按key分组。一般来说，用户涉及到group也就是二次排序的时候需要用到，因为需要自定义分组。可以参见《Hadoop权威指南》第8章的辅助排序。
 
-**4****）如何合并文件？**
+4）如何合并文件？
 
 Map阶段的合并发生在spill完所有文件之后，而Reduce阶段则发生在copyPhrase结束之后，两者逻辑是一直的，所以hadoop将合并写成了通用组件，即Merger。在分析Merger的前，需要了解segment（Merger$Segment）的概念，可以参见前文。
 
@@ -177,9 +177,9 @@ Map阶段的合并发生在spill完所有文件之后，而Reduce阶段则发生
 
 Merger类实现了一个merge方法，该方法生成了一个MergeQueue实例，并调用了该实例的merge方法。MergeQueue继承了PriorityQueue。归并排序的时候需要取多个文件的最小值，hadoop实现是采用的小根堆，比较方法是Merger中的lessThan(a,b)，它会读取segment中当前key，并使用用户自定义类的comparator进行比较。归并路数根据io.sort.factor(10)设置。
 
-**五、我之前的的认识误区**
+### 5、我之前的的认识误区
 
-1）**map****输出记录格式是怎样的？**
+1）map输出记录格式是怎样的？
 
 map的输出为：(key1, value1); (key1, value2); (key1, value3)，而不是：(key1, list(value1, value2, value3))，这个只是逻辑上的格式。
 
@@ -187,15 +187,16 @@ map的输出为：(key1, value1); (key1, value2); (key1, value3)，而不是：(
 
 猜测： 一个key对应的list过大的话，内存放不下；不如来一条记录，输出一条记录。所以如果设置了combiner的话，最后对数据的压缩是很可观的。
 
-**2****）是否可以将****mr****中的临时数据不写入磁盘？**
+2）是否可以将mr中的临时数据不写入磁盘？
 
-从源码的角度来说，是不可能的。可以考虑**[Spark](http://www.spark-project.org/)**以及**[Storm](https://github.com/nathanmarz/storm)**的实现。
+从源码的角度来说，是不可能的。可以考虑[Spark](http://www.spark-project.org/)以及[Storm](https://github.com/nathanmarz/storm)的实现。
 
-**六、参考资料**
-  > [MapReduce: 详解Shuffle流程](http://langyu.iteye.com/blog/992916)
-> 
+### 6、参考资料
+
+> [MapReduce: 详解Shuffle流程](http://langyu.iteye.com/blog/992916)
+>
 > [caibinbupt的博客](http://caibinbupt.iteye.com/blog/401374)
-> 
+>
 > 《hadoop权威指南》  
-
-P.S.: 源码版本 0.20.203.0
+>
+> 源码版本 0.20.203.0
