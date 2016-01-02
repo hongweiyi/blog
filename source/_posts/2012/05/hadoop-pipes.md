@@ -15,7 +15,7 @@ Hadoop Pipes是Hadoop MapReduce的C++接口代称。不同于使用标准输入�
 
 <!--more-->
 
-2、Hadoop Pipes编程初探
+### 2、Hadoop Pipes编程初探
 
 Hadoop Pipes可供开发者编写RecordReader、Mapper、Partitioner、Reducer、RecordWriter五个组件，当然，也可以自定义Combiner。
 

@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
 6 通知Hadoop完成任务，关闭流
 ```
 
-4、Hadoop Pipes浅析
+### 4、Hadoop Pipes浅析
 
 Hadoop Pipes采用类RPC机制，封装了Hadoop端与C++端的调用接口。Hadoop调用C++的协议为DownwardProtocol，C++调用Hadoop的为UpwardProtocol。同时也封装了传输数据序列化的接口（SerialUtils.cc），代码结构十分清晰。
 
