@@ -62,7 +62,7 @@ which命令的作用是，在PATH变量指定的路径中，搜索某个系统�
 /usr/bin/gcc
 ```
 
-> REFE: 以上多数文字摘抄自阮一峰的文章 - 《[Linux的五个查找命令](http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html)》
+> 以上多数文字摘抄自阮一峰的文章 - 《[Linux的五个查找命令](http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html)》
 
 ### 2.3 磁盘操作
 
