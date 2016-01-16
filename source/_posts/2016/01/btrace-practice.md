@@ -1,4 +1,4 @@
-title: BTrace 基本使用
+title: BTrace 使用实践
 date: 2016-01-13 22:54:00
 categories: 最佳实践
 tags: [Java, BTrace]
