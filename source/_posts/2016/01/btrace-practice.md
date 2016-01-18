@@ -70,7 +70,11 @@ public class ProfileScript {
 
 > 注意：这个时候建议将 btrace 的 package 和 btrace 的设置成一样，这样 bootdelegation 才能生效
 
-同时，通过 javaagent 配置 btrace 脚本：
+之后运行：
+
+`btrace PID /home/admin/btrace/com/sun/btrace/scripts/ProfileScript.java`
+
+不过，由于运行 btrace 的时候 OSGi 已经起来了，如果需要跟踪 OSGi 启动过程的话，可以通过 javaagent 来配置 btrace 脚本：
 
 `-javaagent:/home/admin/btrace/build/btrace-agent.jar=script=/home/admin/btrace/com/sun/btrace/scripts/ProfileScript.class`
 
