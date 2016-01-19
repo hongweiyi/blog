@@ -86,7 +86,7 @@ public class ProfileScript {
 
 我在压测过程中，YGC 比较频繁，这样会导致会出现很多不必要的结果。如果实在没有头绪了，建议把 `@OnMethod(clazz)` 设置的范围比较大，扫所有的的类，待拿到结果之后，排除掉一些噪音后可以看到一些不错的结果。运行：
 
-`cat ProfileScript.btrace | awk '{print $1}' | sort | uniq -c | grep -v '1 ' | grep -v '2 ' | sort -k 2`
+`cat ProfileScript.btrace | awk '{print $1}' | sort | uniq -c | grep -v '1 ' | grep -v '2 ' | sort -rnk 1`
 
 > 不要忽略任何一个可疑的问题，极个别耗时长的请求完全可以拖垮整个系统
 
