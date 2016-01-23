@@ -1,6 +1,6 @@
 title: 2013学习计划
 tags:
-  - [生活]
+  - 生活
 id: 623
 categories:
   - 生活点滴
